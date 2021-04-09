@@ -20,11 +20,14 @@ function frequency(array1, array2){
         if(!(key ** 2 in freqCounter2)){
             return false
         }
+        if(freqCounter1[key] != freqCounter2[key **2]){
+            return false
+        }
     }
     return true
 
 }
 
-frequency([1,2,3], [1,4,9])
+frequency([1,2,2,3], [1,1,4,9])
 frequency([2,8,10], [1,3,8])
 frequency([2,3,8,10], [4,9])
