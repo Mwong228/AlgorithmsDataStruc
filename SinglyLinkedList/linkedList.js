@@ -71,7 +71,7 @@ class SinglyLinkedList{
             this.tail = this.head
         }
         else{
-        newNode.next = this.head
+        newHead.next = this.head
         this.head = newHead
         }
         this.length++
@@ -97,6 +97,27 @@ class SinglyLinkedList{
             return true
         }
         return false
+    }
+    insert(index, val){
+        if(index < 0 || index >this.length){
+            return false
+        }
+        if(index === 0){
+            this.unshift(val)
+            return true
+        }
+        if(index === this.length){
+            this.push(val)
+            return true
+        }
+        var newNode = new Node (val)
+        var prev = this.get(index -1)
+        var temp = prev.next
+
+        prev.next = newNode
+        newNode.next = temp
+        this.length++
+        return true
     }
 }
 
