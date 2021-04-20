@@ -119,7 +119,47 @@ class SinglyLinkedList{
         this.length++
         return true
     }
+    remove(index){
+        if(index < 0 || index >=this.length){
+            return undefined
+        }
+        if(index === 0){
+            this.shift()
+        }
+        if(index ===this.length -1){
+            this.pop()
+        }
+        var prev = this.get(index -1)
+        var removed = prev.next
+
+        prev.next = removed.next
+        this.length--
+        return removed
+    }
+    // reverses the linked list order
+    reverse(){
+        var node = this.head
+        this.head = this.tail
+        this.tail = node
+        var next
+        var prev = null
+
+        for(i=0; i<this.length; i++){
+            next = node.next
+            node.next = prev
+            prev = node 
+            node = next
+        }
+        return this
+        
+    }
 }
+
+//time complexity 
+// insertion O(1)
+// removal O(1) or O(N)
+// searching O(N)
+// Access O(N)
 
 var list = new SinglyLinkedList()
 list.push("Hello")
