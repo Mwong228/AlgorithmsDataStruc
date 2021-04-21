@@ -25,6 +25,24 @@ class DoublyLinkedList {
         this.length++
         return this
     }
+    pop(){
+        if(!this.head){
+            return undefined
+        }
+        var remove = this.tail
+        if(this.length === 1){
+            this.head = null 
+            this.tail = null
+        }
+        else{
+            this.tail = remove.prev
+            this.tail.next = null
+            remove.prev = null 
+        }
+        this.length--
+
+        return remove
+    }
 
 }
 
