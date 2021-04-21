@@ -141,7 +141,7 @@ class SinglyLinkedList{
         var node = this.head
         this.head = this.tail
         this.tail = node
-        var next
+        var next = null
         var prev = null
 
         for(i=0; i<this.length; i++){
