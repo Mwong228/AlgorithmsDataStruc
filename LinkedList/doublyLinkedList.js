@@ -25,42 +25,64 @@ class DoublyLinkedList {
         this.length++
         return this
     }
-    pop(){
-        if(!this.head){
+    pop() {
+        if (!this.head) {
             return undefined
         }
         var remove = this.tail
-        if(this.length === 1){
-            this.head = null 
+        if (this.length === 1) {
+            this.head = null
             this.tail = null
         }
-        else{
+        else {
             this.tail = remove.prev
             this.tail.next = null
-            remove.prev = null 
+            remove.prev = null
         }
         this.length--
 
         return remove
     }
-    shift(){
-        if(!this.head){
+    shift() {
+        if (!this.head) {
             return undefined
         }
         var oldHead = this.head
-        if(this.length === 1){
+        if (this.length === 1) {
             this.head = null
             this.tail = null
         }
-        else{
+        else {
             this.head = oldHead.next
             this.head.prev = null
             oldHead.next = null
         }
-        this.length-- 
+        this.length--
 
         return oldHead
     }
+    unshift(value) {
+        var newNode = new Node(value)
+        var oldHead = this.head
+        if (!this.head) {
+            this.head = newNode
+            this.tail = newNode
+        }
+        else {
+            this.head = newNode
+            this.head.prev = newNode
+            newNode.next = oldHead
+            newNode.prev = null
+
+            // OR
+            // this.head.prev = newNode
+            // newNode.next = this.head
+            // this.head = newNode
+        }
+        this.length++
+        return list
+    }
+
 }
 
 list = new DoublyLinkedList()
