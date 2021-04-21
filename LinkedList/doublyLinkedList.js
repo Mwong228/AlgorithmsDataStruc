@@ -82,6 +82,32 @@ class DoublyLinkedList {
         this.length++
         return list
     }
+    get(index) {
+        if (index < 0 || index >= this.length) {
+            return null
+        }
+        var middle = Math.floor(this.length / 2)
+        if (index < middle) {
+            console.log("counting form beginning")
+            let counter = 0
+            let current = this.head
+            while (counter != index) {
+                current = current.next
+                counter++
+            }
+            return current
+        }
+        if (index >= middle) {
+            console.log("counting from end")
+            let counter = this.length - 1
+            let end = this.tail
+            while (counter > index) {
+                end = end.prev
+                counter--
+            }
+            return end
+        }
+    }
 
 }
 
@@ -89,3 +115,6 @@ list = new DoublyLinkedList()
 
 list.push(99)
 list.push(105)
+list.push(200)
+list.push(201)
+list.push(400)
