@@ -108,6 +108,16 @@ class DoublyLinkedList {
             return end
         }
     }
+    set(index, value){
+        var change = this.get(index)
+
+        if(change){
+            change.value = value
+            return true
+        }
+        return false
+    }
+    
 
 }
 
