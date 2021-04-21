@@ -40,3 +40,6 @@ function mergeSort(arr){
 }
 
 mergeSort([10,24,76,73,70,1,8])
+
+//time complexity O(N logN)
+//space O(N)
