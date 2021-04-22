@@ -117,7 +117,30 @@ class DoublyLinkedList {
         }
         return false
     }
-    
+    insert(index, value){
+        if(index < 0 || index > this.length){
+            return false
+        }
+        if(index === 0){
+            this.unshift(value)
+            return true
+        }
+        if(index === this.length){
+            this.push(value)
+            return true
+        }
+        var newNode = new Node(value)
+        var prevNode = this.get(index -1)
+        var temp = prevNode.next
+
+        prevNode.next = newNode
+        newNode.prev = prevNode
+        newNode.next = temp
+        temp.prev = newNode
+
+        this.length++
+        return true
+    }
 
 }
 
