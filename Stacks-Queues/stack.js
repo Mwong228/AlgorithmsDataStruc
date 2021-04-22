@@ -11,7 +11,7 @@ class Stack{
         this.last = null 
         this.size = 0
     }
-    //insert at the beginning of list
+    //insert at the beginning of list (unshift)
     push(value){
         var newNode = new Node(value)
         if(!this.first){
@@ -25,7 +25,7 @@ class Stack{
         this.size++
         return this.size
     }
-    //remove first element of list
+    //remove first element of list (shift)
     pop(){
         if(!this.first){
             return null
@@ -46,3 +46,9 @@ stack.push(1)
 stack.push(2)
 stack.push(13)
 stack.push(123)
+
+//Time complexity
+//Insertion O(1) - add from begin 
+//Removal O(1) - remove from begin
+//Searching O(N)
+//Access O(N)
