@@ -141,8 +141,33 @@ class DoublyLinkedList {
         this.length++
         return true
     }
+    remove(index){
+        if(index < 0 || index >= this.length){
+            return undefined
+        }
+        if(index === 0){
+            return this.shift
+        }
+        if(index === this.length -1){
+            return this.pop
+        }
+        var remove = this.get(index)
+
+        remove.prev.next = remove.next
+        remove.next.prev = remove.prev 
+        remove.next = null 
+        remove.prev = null 
+        this.length-- 
+        return remove
+    }
 
 }
+
+//Time complexity 
+//Insertion O(1)
+//Removal O(1)
+//Searching O(N)
+//Access O(N)
 
 list = new DoublyLinkedList()
 
