@@ -19,7 +19,7 @@ class BST {
         else {
             var current = this.root
             while (true) {
-                if(value === current.value){
+                if (value === current.value) {
                     return undefined
                 }
                 if (value < current.value) {
@@ -44,37 +44,24 @@ class BST {
         }
 
     }
-    find(value){
-        if(!this.root){
+    find(value) {
+        if (!this.root) {
             return false
         }
-        else{
-            var current = this.root
-            while(true){
-                if(current.value === null){
-                    return false
-                }
-                if(value === current.value){
-                    return true
-                }
-                if(value < current.value){
-                    if(current.left === value){
-                        return true
-                    }
-                    else{
-                        current = current.left
-                    }
-                }
-                if(value > current.value){
-                    if(current.right === value){
-                        return true
-                    }
-                    else{
-                        current = current.right
-                    }
-                }
+        var current = this.root
+        var found = false
+        while (current && !found) {
+            if(value < current.value){
+                current = current.left
+            }
+            else if(value > current.value){
+                current = current.right
+            }
+            else{
+                found = true
             }
         }
+        return current
     }
 }
 
@@ -84,3 +71,7 @@ tree.insert(2)
 tree.insert(15)
 tree.insert(8)
 tree.insert(20)
+
+//Time complexity 
+//insertion O(logN)
+//searching O(logN)
