@@ -61,7 +61,29 @@ class BST {
                 found = true
             }
         }
+        if(!found){
+            return false
+        }
         return current
+    }
+    contains(value){
+        if(!this.root){
+            return false
+        }
+        var current = this.root 
+        var found = false
+        while(current && !found){
+            if(value < current.value){
+                current = current.left
+            }
+            else if(value > current.value){
+                current = current.right
+            }
+            else{
+                return true
+            }
+        }
+        return false
     }
 }
 
