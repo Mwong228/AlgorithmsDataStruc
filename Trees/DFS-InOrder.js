@@ -44,46 +44,20 @@ class BST {
         }
 
     }
-    find(value) {
-        if (!this.root) {
-            return false
-        }
+    DFSInOrder(){
+        var data = []
         var current = this.root
-        var found = false
-        while (current && !found) {
-            if(value < current.value){
-                current = current.left
+        function traverse(node){
+            if(node.left){
+                traverse(node.left)
             }
-            else if(value > current.value){
-                current = current.right
-            }
-            else{
-                found = true
+            data.push(node.value)
+            if(node.right){
+                traverse(node.right)
             }
         }
-        if(!found){
-            return false
-        }
-        return current
-    }
-    contains(value){
-        if(!this.root){
-            return false
-        }
-        var current = this.root 
-        var found = false
-        while(current && !found){
-            if(value < current.value){
-                current = current.left
-            }
-            else if(value > current.value){
-                current = current.right
-            }
-            else{
-                return true
-            }
-        }
-        return false
+        traverse(current)
+        return data
     }
 }
 
@@ -94,7 +68,3 @@ tree.insert(15)
 tree.insert(3)
 tree.insert(8)
 tree.insert(20)
-
-//Time complexity 
-//insertion O(logN)
-//searching O(logN)
