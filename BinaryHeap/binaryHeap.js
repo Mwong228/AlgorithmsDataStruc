@@ -24,6 +24,36 @@ class MaxBinaryHeap{
         }
 
     }
+    remove(){
+        let max = this.values[0]
+        let end = this.values.pop()
+        this.values[0] = end
+        this.sinkDown()
+        return max
+    }
+    sinkDown(){
+        let idx = 0 
+        let length = this.values.length 
+        let element = this.values[0]
+        while(true){
+            let leftChildIdx = 2*idx+1
+            let rightChildIdx = 2*idx+2
+            let leftChild, rightChild
+            let swap = null
+
+            if(leftChildIdx < length){
+                leftChild = this.values[leftChildIdx]
+                if(leftChild > element){
+                    swap = leftChildIdx
+                }
+            }
+
+            if(swap === null){
+                break
+            }
+        }
+    }
+
 }
 
 let heap = new MaxBinaryHeap()
