@@ -26,8 +26,46 @@ class Graph {
         }
         dfs(start)
         return result
-
     }
+    dfIterative(start){
+        const stack = [start]
+        const result = []
+        const visited = {}
+        let currentVertex
+        visited[start] = true
+
+        while(stack.length){
+            currentVertex = stack.pop()
+            result.push(currentVertex)
+            
+            this.adjacencyList[currentVertex].forEach(next => {
+                if(!visited[next]){
+                    visited[next] = true
+                    stack.push(next)
+                }
+            })
+        }
+    }
+    breadthFirst(star){
+        const queue = [start]
+        const result = []
+        const visited = {}
+        let currentVertex
+        
+        while(queue.length){
+            currentVertex = queue.shift()
+            result.push(currentVertex)
+
+            this.adjacencyList[currentVertex].forEach(next =>{
+                if(!visited[next]){
+                    visited[next] = true
+                    queue.push(next)
+                }
+            })
+        }
+        return result
+    }
+
 
 }
 var g = new Graph ()
